@@ -10,7 +10,7 @@ class ListAllUsersController {
     const { user_id } = request.headers;
     try {
       const listUsers = this.listAllUsersUseCase.execute({
-        user_id: String(user_id)
+        user_id: String(user_id),
       });
   
       return response.json(listUsers);

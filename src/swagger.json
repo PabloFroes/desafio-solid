@@ -1,0 +1,203 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Desafio Swagger"
+    },
+    "paths":{
+        "/users":{
+            "post":{
+                "summary": "Create a new User",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties" : {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "UserName",
+                                    "email": "user@email" 
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties" : {
+                                            "id":{
+                                                "type": "string"
+                                            },
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type": "string"
+                                            },
+                                            "admin": {
+                                                "type": "boolean"
+                                            },
+                                            "created_at": {
+                                                "type":"string"
+                                            },
+                                            "updated_at":{
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Unable to create"
+                    }
+                }
+            },
+            "get":{
+                "summary": "List of all users",
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties" : {
+                                            "id":{
+                                                "type": "string"
+                                            },
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type": "string"
+                                            },
+                                            "admin": {
+                                                "type": "boolean"
+                                            },
+                                            "created_at": {
+                                                "type":"string"
+                                            },
+                                            "updated_at":{
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "User not Allowed"
+                    }
+                }
+            }
+        },
+        "/users/{user_id}":{
+            "get":{
+                "summary": "Get a user profile by ID",
+                "responses": {
+                    "201": {
+                        "description": "Found",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties" : {
+                                            "id":{
+                                                "type": "string"
+                                            },
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type": "string"
+                                            },
+                                            "admin": {
+                                                "type": "boolean"
+                                            },
+                                            "created_at": {
+                                                "type":"string"
+                                            },
+                                            "updated_at":{
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "User not Found"
+                    }
+                }
+            }
+        },
+        "/users/:user_id/admin":{
+            "patch":{
+                "summary": "Turn an user as admin",
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties" : {
+                                            "id":{
+                                                "type": "string"
+                                            },
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type": "string"
+                                            },
+                                            "admin": {
+                                                "type": "boolean"
+                                            },
+                                            "created_at": {
+                                                "type":"string"
+                                            },
+                                            "updated_at":{
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "User not Allowed"
+                    }
+                }
+            }
+        }
+    }
+}
